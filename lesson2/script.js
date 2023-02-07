@@ -1,7 +1,19 @@
 // Масиви та об'єкти:
 // - Створити масив, наповнити його 10 елементами будь-якого типу, вивести кожен елемент в консоль
 
-const array = ["hi", true, 22, 3.5, "people"];
+const array = ["hi", true, 22, 3.5, "people", "man", false, 0, 1.1, "P"];
+
+console.log(array[0]);
+console.log(array[1]);
+console.log(array[2]);
+console.log(array[3]);
+console.log(array[4]);
+console.log(array[5]);
+console.log(array[6]);
+console.log(array[7]);
+console.log(array[8]);
+console.log(array[9]);
+
 for (const element of array) {
     console.log(element);
 }
@@ -101,6 +113,10 @@ const userArray = [
         password: "number10"
     },
 ];
+
+console.log(userArray[0].password, userArray[1].password, userArray[2].password, userArray[3].password,
+    userArray[4].password, userArray[5].password, userArray[6].password, userArray[7].password, userArray[8].password,
+    userArray[9].password);
 
 for (const element of userArray) {
     console.log(element.password);
@@ -207,6 +223,14 @@ let coursesAndDurationArray = [
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
 ];
+
+if (coursesAndDurationArray[0].monthDuration > 5) { console.log("Супер!"); }
+if (coursesAndDurationArray[1].monthDuration > 5) { console.log("Супер!"); }
+if (coursesAndDurationArray[2].monthDuration > 5) { console.log("Супер!"); }
+if (coursesAndDurationArray[3].monthDuration > 5) { console.log("Супер!"); }
+if (coursesAndDurationArray[4].monthDuration > 5) { console.log("Супер!"); }
+if (coursesAndDurationArray[5].monthDuration > 5) { console.log("Супер!"); }
+
 
 for (const el of coursesAndDurationArray) {
     if (el.monthDuration > 5) {
