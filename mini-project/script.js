@@ -1,13 +1,15 @@
 const usersWrapper = document.querySelector('.users__wrapper');
-
-async function getUsersData(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-}
-
 const url = 'https://jsonplaceholder.typicode.com/users';
 
+async function getUsersData(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Problem with fetch: ', error);
+    }
+}
 getUsersData(url)
     .then(data => {
         for (const item of data) {

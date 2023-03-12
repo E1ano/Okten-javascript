@@ -1,6 +1,7 @@
 const currentPost = JSON.parse(localStorage.getItem('post'));
 const userInfo = document.querySelector('.post__info');
-
+const backBtn = document.querySelector('.back__button');
+backBtn.addEventListener('click', () => window.history.back());
 function renderPostData(post) {
     for (const postKey in post) {
         if ( typeof post[postKey] === 'object') {
@@ -15,9 +16,6 @@ function renderPostData(post) {
 }
 
 renderPostData(currentPost);
-
-const backBtn = document.querySelector('.back__button');
-backBtn.addEventListener('click', () => window.history.back());
 
 // PostComments
 const currentPostId = JSON.parse(localStorage.getItem('post')).id;
@@ -40,13 +38,16 @@ function renderPostComments(array) {
     }
 }
 async function getPostComments(id) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Problem with fetch: ', error);
+    }
 }
 
 getPostComments(currentPostId)
     .then(data => {
-        console.log(data)
-        renderPostComments(data)
+        renderPostComments(data);
     });

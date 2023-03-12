@@ -20,15 +20,18 @@ renderUserData(currentUser);
 
 const currentUserId = JSON.parse(localStorage.getItem('user')).id;
 async function getUserPosts(id) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Problem with fetch: ', error);
+    }
 }
 
 postBtn.addEventListener('click', (e) => {
     getUserPosts(currentUserId)
         .then(data => {
-            console.log(data)
             for (const dataElement of data) {
                 const div = document.createElement('div');
                 const button = document.createElement('a');
