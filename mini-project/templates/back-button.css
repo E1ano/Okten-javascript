@@ -1,0 +1,18 @@
+.back__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px 0;
+    width: 150px;
+    border: 2px solid #ffffff;
+    background: transparent;
+
+    color: #ffffff;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.back__button:hover {
+    transform: scale(1.05);
+}
